@@ -1,0 +1,22 @@
+from .recognizers.ip import is_ip, lookup_ip
+from .output import output_to_file, print_json, print_table
+
+def dispatch(args: list[str]):
+    if args[0] == "ip":
+        if len(args) < 2:
+            print("Please provide an IP address.")
+            return
+        ip = args[1]
+        if not is_ip(ip):
+            print("Please provide a valid IP address.")
+            return
+        res = lookup_ip(ip)
+        if res is None:
+            print("Failed to lookup IP address.")
+            return
+        print_table([res])
+        print_json(res)
+        output_to_file(res, "ip_result.json")
+
+    else:
+        print("Invalid command.")

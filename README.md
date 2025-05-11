@@ -14,3 +14,6 @@ uv install lo/01/reddington
 reddington ip <ip>
 ```
 
+```bash
+reddington social <username>
+```

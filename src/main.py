@@ -1,5 +1,5 @@
 import click
-from .dispatch import dispatch
+from dispatch import dispatch
 from rich.traceback import install
 
 install()

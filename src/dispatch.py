@@ -1,6 +1,6 @@
 from recognizers.ip import is_ip, lookup_ip
 from output import output_to_file, print_json, print_table
-from recognizers.social import check_username
+from recognizers.social import lookup_social
 
 def dispatch(args: list[str]):
     if args[0] == "ip":
@@ -23,7 +23,7 @@ def dispatch(args: list[str]):
             print("Please provide a username.")
             return
         username = args[1]
-        res = check_username(username)
+        res = lookup_social(username)
         print_table([res])
         print_json(res)
         output_to_file(res, "social_result.json")
